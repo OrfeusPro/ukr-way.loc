@@ -11,10 +11,10 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Document title -->
 	<!-- Stylesheets & Fonts -->
-	<link href="{{ ver_asset(env('THEME').'/css/plugins.css') }}" rel="stylesheet">
-	<link href="{{ ver_asset(env('THEME').'/css/style.css') }}" rel="stylesheet">
-	<link href="{{ ver_asset(env('THEME').'/css/custom.css') }}" rel="stylesheet">
-	<link href="{{ ver_asset(env('THEME').'/css/xxx.css') }}" rel="stylesheet">
+	<link href="{{ ver_asset(env('THEME').'css/plugins.css') }}" rel="stylesheet">
+	<link href="{{ ver_asset(env('THEME').'css/style.css') }}" rel="stylesheet">
+	<link href="{{ ver_asset(env('THEME').'css/custom.css') }}" rel="stylesheet">
+	<link href="{{ ver_asset(env('THEME').'css/xxx.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -72,11 +72,11 @@
 
 
 	<!--Plugins-->
-	<script src="{{ ver_asset(env('THEME').'/js/jquery.js') }}"></script>
-	<script src="{{ ver_asset(env('THEME').'/js/plugins.js') }}"></script>
+	<script src="{{ ver_asset(env('THEME').'js/jquery.js') }}"></script>
+	<script src="{{ ver_asset(env('THEME').'js/plugins.js') }}"></script>
 
 	<!--Template functions-->
-	<script src="{{ ver_asset(env('THEME').'/js/functions.js') }}"></script>
+	<script src="{{ ver_asset(env('THEME').'js/functions.js') }}"></script>
 
 	<script>
 	 $.ajaxSetup({
@@ -85,7 +85,7 @@
 	  }
 	 });
 	</script>
-	<script src="{{ ver_asset(env('THEME').'/js/custom.js') }}"></script>
+	<script src="{{ ver_asset(env('THEME').'js/custom.js') }}"></script>
 
 
 

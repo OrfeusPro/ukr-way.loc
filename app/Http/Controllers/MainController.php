@@ -28,8 +28,9 @@ class MainController extends Controller
         ->with('dist_r_from', $dist_r_from)
         ->with('dist_r_to', $dist_r_to)
         ->render();
-        $content = view(env('THEME_RESOURCES') . '.parts.route')->with('routes', $routes)->render();
-        $content = $main_forma.$content;
+        $benefits = view(env('THEME_RESOURCES') . '.parts.benefits')->render();
+        $routes = view(env('THEME_RESOURCES') . '.parts.route')->with('routes', $routes)->render();
+        $content = $main_forma.$routes.$benefits;
 
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'slider', $sliders);

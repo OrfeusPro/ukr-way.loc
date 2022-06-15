@@ -15,7 +15,7 @@
 						</div>
 					</a>
 					<div class="team-desc">
-						<h3><a href="#">{{ $route->title }}</a></h3>
+						<h3><a href="#" style="color:rgb(37, 37, 37);">{{ $route->title }}</a></h3>
 						<span>{{ $route->to_countries->first()->title }}</span>
 						<div class="row pb-3 pt-3">
 							<div class="col-6">

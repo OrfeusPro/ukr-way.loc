@@ -105,3 +105,12 @@
     border-radius:0;
 }
 
+/* /////////////////////////// */
+.benefits .testimonial .testimonial-item > img {
+    border-radius: 0%;
+    display: block;
+    float: none;
+    height: 36px;
+    margin: 0 auto 10px;
+    width: 36px;
+}

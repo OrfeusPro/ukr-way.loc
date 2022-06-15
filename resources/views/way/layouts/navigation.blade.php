@@ -1,10 +1,11 @@
 		<!-- Topbar -->
-		<div id="topbar" class="topbar-transparent topbar-fullwidth dark d-none d-xl-block d-lg-block">
+		{{-- <div id="topbar" class="topbar-transparent topbar-fullwidth dark d-none d-xl-block d-lg-block"> --}}
+		<div id="topbar" class="topbar-fullwidth white d-none d-xl-block d-lg-block">
 			<div class="container-sm">
 				<div class="row">
-					<div class="col-md-9">
+					<div class="col-md-12">
 						@if (!$tels->isEmpty())
-							<ul class="top-menu" style="line-height: 10px;">
+							<ul class="top-menu center text-center" style="line-height: 10px;">
 								@foreach ($tels as $tel)
 									@if ($tel->in_menu)
 										<li><a href="tel:{{ $tel->phone_full }}" class="mr-0" style="float:left;">{{ $tel->phone }}</a>
@@ -23,7 +24,7 @@
 												</div>
 											@endif
 											@if ($loop->iteration != count($tels))
-												<span class="pl-1 pr-3" style="float:left; color: white; line-height: 40px;">|</span>
+												<span class="pl-1 pr-3" style="float:left; color: rgb(46, 46, 46); line-height: 40px;">|</span>
 											@endif
 										</li>
 									@endif
@@ -31,9 +32,9 @@
 							</ul>
 						@endif
 					</div>
-					<div class="col-md-3 d-none d-sm-block text-right align-self-center">
+					{{-- <div class="col-md-2 d-none d-sm-block text-right align-self-center">
 						<a href="#"  data-target="#modal" data-toggle="modal" class="btn btn-light btn-sm mb-0">Замовити дзвінок</a>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>

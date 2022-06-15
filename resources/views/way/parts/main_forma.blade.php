@@ -1,4 +1,4 @@
-<section class="search-sec xs-my">
+<section class="search-sec pt-5 pb-5">
     <div class="container box-shadow bg-white radius-md">
         <form action="./complete.php" method="post" id="mainform_action">
             <div class="row">

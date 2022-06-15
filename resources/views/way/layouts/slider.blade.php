@@ -14,6 +14,10 @@
 						@if ($slide['description'])
 							<p class="lead">{!! $slide['description'] !!}</p>
 						@endif
+						@if ($slide['btn'])
+						<a href="#" data-target="#modal" data-toggle="modal" class="btn btn-rounded btn-lg">
+							{!! $slide['btn'] !!}</a>
+						@endif
 						{{-- <div data-caption-animation="zoom-out">
 							<a href="https://www.youtube.com/watch?v=nrJtHemSPW4" data-lightbox="iframe" class="btn btn-rounded">
 								{!! $slide['btn'] !!}</a>

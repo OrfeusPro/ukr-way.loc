@@ -1,0 +1,107 @@
+/* 
+
+1. Add your custom Css styles below
+2. Place the this code in your template: 
+
+ <link href="css/custom.css" rel="stylesheet">
+
+*/
+
+
+.uk-form-icon:not(.uk-form-icon-flip)~.uk-input, .uk-form-icon:not(.uk-form-icon-flip)~.uneditable-input:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=color]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=date]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=datetime-local]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=datetime]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=email]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=month]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=number]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=password]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=search]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=tel]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=text]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=time]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=url]:not([class*=uk-]), .uk-form-icon:not(.uk-form-icon-flip)~input[type=week]:not([class*=uk-]) {
+    padding-left: 42px!important;
+}
+.uk-input, .uk-select:not([multiple]):not([size]), .uneditable-input:not([class*=uk-]), input[type=color]:not([class*=uk-]), input[type=date]:not([class*=uk-]), input[type=datetime-local]:not([class*=uk-]), input[type=datetime]:not([class*=uk-]), input[type=email]:not([class*=uk-]), input[type=month]:not([class*=uk-]), input[type=number]:not([class*=uk-]), input[type=password]:not([class*=uk-]), input[type=search]:not([class*=uk-]), input[type=tel]:not([class*=uk-]), input[type=text]:not([class*=uk-]), input[type=time]:not([class*=uk-]), input[type=url]:not([class*=uk-]), input[type=week]:not([class*=uk-]), select:not([class*=uk-]):not([multiple]):not([size]) {
+    height: 42px;
+}
+.uk-input, .uk-select, .uk-textarea, .uneditable-input:not([class*=uk-]), input[type=color]:not([class*=uk-]), input[type=date]:not([class*=uk-]), input[type=datetime-local]:not([class*=uk-]), input[type=datetime]:not([class*=uk-]), input[type=email]:not([class*=uk-]), input[type=month]:not([class*=uk-]), input[type=number]:not([class*=uk-]), input[type=password]:not([class*=uk-]), input[type=search]:not([class*=uk-]), input[type=tel]:not([class*=uk-]), input[type=text]:not([class*=uk-]), input[type=time]:not([class*=uk-]), input[type=url]:not([class*=uk-]), input[type=week]:not([class*=uk-]), select:not([class*=uk-]), textarea:not([class*=uk-]) {
+    width: 100%;
+    padding: 0 10px;
+}
+
+
+.uk-form-label {
+    font-size: 10px;
+    color: #626262;
+    margin-left: 12px;
+    margin-top: -11px;
+    margin-bottom: -40px;
+    /* float: left; */
+    z-index: 1;
+    position: absolute;
+}
+
+.hb_form input, .hb_form textarea {
+    outline: 0!important;
+    outline-offset: 0!important;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 0px!important;
+}
+
+.hb_bottom_zabronirovat{
+	border-top-right-radius: 12px!important;
+	border-bottom-right-radius: 12px!important;
+	border-top-left-radius: 0px!important;
+	border-bottom-left-radius: 0px!important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .hb_bottom_zabronirovat{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .hb_bottom_zabronirovat{
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+}
+
+.zamir {
+    font-weight: 600;
+    color: #fff!important;
+    background-color: #009de0 !important;
+    border: 2px solid #009de0 !important;
+}
+
+.zamir:hover {
+    font-weight: 600;
+    color: #009de0!important;
+    background-color: #fff !important;
+    border: 2px solid #009de0 !important;
+}
+
+.zamir2 {
+    font-weight: 500;
+    color: #fff!important;
+    background-color: #009de0 !important;
+    border: 2px solid #009de0 !important;
+}
+
+.zamir2:hover {
+    font-weight: 500;
+    color: #009de0!important;
+    background-color: #009de000 !important;
+    border: 2px solid #009de0;
+}
+
+.p-0 {
+    padding: 0!important;
+}
+
+.wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: 100%;
+    border-radius:0;
+}
+

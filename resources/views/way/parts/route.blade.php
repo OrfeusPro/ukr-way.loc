@@ -1,3 +1,53 @@
+<section class="background-grey">
+	<div class="container">
+		<div class="heading-text heading-section text-center">
+			<h2>ПОПУЛЯРНІ МАРШРУТИ</h2>
+			{{-- <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.
+			</p> --}}
+		</div>
+		<div class="row team-members">
+
+			@foreach ($routes as $route)
+
+			<div class="col-lg-4">
+				<div class="team-member">
+					<div class="team-image">
+						<img src="{{ Voyager::image($route['img']) }}">
+					</div>
+					<div class="team-desc">
+						<h3>{{ $route->title }}</h3>
+						<span>{{ $route->to_countries->first()->title }}</span>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing tristique hendrerit laoreet. </p>
+						<div class="align-center">
+							<a class="btn btn-xs btn-slide btn-light" href="#">
+								<i class="fab fa-facebook-f"></i>
+								<span>Facebook</span>
+							</a>
+							<a class="btn btn-xs btn-slide btn-light" href="#" data-width="100">
+								<i class="fab fa-twitter"></i>
+								<span>Twitter</span>
+							</a>
+							<a class="btn btn-xs btn-slide btn-light" href="#" data-width="118">
+								<i class="fab fa-instagram"></i>
+								<span>Instagram</span>
+							</a>
+							<a class="btn btn-xs btn-slide btn-light" href="mailto:#" data-width="80">
+								<i class="icon-mail"></i>
+								<span>Mail</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			@endforeach
+
+		</div>
+	</div>
+</section>
+
+
+
 <section>
 	<div class="container">
 		<div class="heading-text text-center m-b-20 animated fadeInUp visible" data-animate="fadeInUp">

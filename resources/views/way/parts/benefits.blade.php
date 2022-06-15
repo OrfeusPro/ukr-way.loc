@@ -2,7 +2,9 @@
 <section>
 	<div class="container benefits">
 		<!-- Testimonials -->
-		<h4 class="mb-4">ПЕРЕВАГИ</h4>
+		<div class="heading-text heading-section text-center">
+			<h2>ПЕРЕВАГИ</h2>
+		</div>
 		<div class="carousel testimonial testimonial-border" data-items="4" data-equalize-item=".testimonial-item">
 			<!-- Testimonials item -->
 			<div class="testimonial-item">
@@ -66,7 +68,7 @@
 
 		</div>
 		<!-- end: Testimonials -->
-		<div class="line"></div>
+		{{-- <div class="line"></div> --}}
 
 	</div>
 </section>

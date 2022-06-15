@@ -9,8 +9,9 @@ class Country extends Model
 {
     use HasFactory;
 
-    public function routes()
+    public function marshrut()
     {
-        return $this->belongsTo(Route::class);
+        return $this->hasMany(Route::class, 'to_country');
+        // return $this->belongsTo(Route::class, 'id', 'from_country');
     }
 }

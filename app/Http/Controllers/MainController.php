@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Route;
 use App\Models\Slider;
 use Illuminate\Support\Arr;
@@ -20,7 +21,7 @@ class MainController extends Controller
     {
         //$content = '';
 		$sliders = Slider::all()->translate(App::getLocale(), 'ru');
-        $routes = Route::where("is_show", 1)->get();
+        $routes = Route::where("is_show", 1)->where('main', 1)->orderBy('sort', 'asc')->get();
         $dist_r_from = Route::select('r_from')->where("is_show", 1)->distinct()->get();
         $dist_r_to = Route::select('r_to')->where("is_show", 1)->distinct()->get();
 
@@ -29,7 +30,9 @@ class MainController extends Controller
         ->with('dist_r_to', $dist_r_to)
         ->render();
         $benefits = view(env('THEME_RESOURCES') . '.parts.benefits')->render();
-        $routes = view(env('THEME_RESOURCES') . '.parts.route')->with('routes', $routes)->render();
+        $routes = view(env('THEME_RESOURCES') . '.parts.route')
+        ->with("title", "ПОПУЛЯРНІ МАРШРУТИ")
+        ->with('routes', $routes)->render();
         $content = $main_forma.$routes.$benefits;
 
         $this->vars = Arr::add($this->vars, 'content', $content);
@@ -39,9 +42,56 @@ class MainController extends Controller
         return $this->renderOutput();
     }
 
+
+    public function country($slug, Request $request)
+    {
+        $country = Country::where('alias',$slug)->first();
+        $routes = $country->marshrut()->where("is_show", 1)->orderBy('sort', 'asc')->get();
+
+        $routes = view(env('THEME_RESOURCES') . '.parts.route')
+        ->with("country", $country)
+        ->with('routes', $routes)->render();
+        $content = $routes;
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->vars = Arr::add($this->vars, 'title', setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        return $this->renderOutput();
+    }
+
+    public function mroute($slug, Request $request)
+    {
+        $route = Route::where('alias',$slug)->where('main', 1)->orderBy('sort', 'asc')->first();
+        $routes = view(env('THEME_RESOURCES') . '.parts.route_single')
+        ->with('route', $route)->render();
+        $content = $routes;
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->vars = Arr::add($this->vars, 'title', setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        return $this->renderOutput();
+    }
+
+
+
+    public function country_all(Request $request)
+    {
+        $countries = Country::orderBy('sort', 'asc')->get();
+        // $routes = $country->marshrut()->where("is_show", 1)->orderBy('sort', 'asc')->get();
+
+        $routes = view(env('THEME_RESOURCES') . '.parts.country_all')
+        ->with("countries", $countries)
+        ->render();
+        $content = $routes;
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->vars = Arr::add($this->vars, 'title', setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        return $this->renderOutput();
+    }
+
     public function form_process(Request $request)
     {
-
         $name_user = $_POST["name_user"];
         $tel_user = $_POST["tel_user"];
         $otkuda = $_POST["otkuda"];

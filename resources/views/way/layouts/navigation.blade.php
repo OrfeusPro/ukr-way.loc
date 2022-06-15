@@ -46,7 +46,7 @@
 				<div class="container">
 					<!--Logo-->
 					<div id="logo">
-						<a href="./">
+						<a href="{{ route('home') }}">
 							<img class="logo-default" src="{{ Voyager::image(setting('site.logo')) }}">
 							<img class="logo-dark" src="{{ Voyager::image(setting('site.logo')) }}">
 						</a>

@@ -1262,6 +1262,7 @@ Topbar
   transition: all .4s ease-in-out;
   height: 80px;
 }
+
 #header .header-inner #logo a > img,
 #header #header-wrap #logo a > img {
   vertical-align: inherit;
@@ -1269,6 +1270,13 @@ Topbar
   height: 120px;
   width: auto;
 }
+
+#header .header-inner .hb_logo a > img,
+#header #header-wrap .hb_logo a > img {
+  height: 80px!important;
+}
+
+
 #header .header-inner #logo a > img,
 #header .header-inner #logo a [class*="logo-"],
 #header #header-wrap #logo a > img,

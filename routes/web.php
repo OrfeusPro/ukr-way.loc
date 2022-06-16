@@ -12,6 +12,9 @@ use App\Http\Controllers\MainController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function () {
     Route::get('/', [MainController::class, 'index'])->name('home');
@@ -23,6 +26,3 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/route/{mroute}', [MainController::class, 'mroute'])->name('mroute');
 });
 	
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});

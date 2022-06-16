@@ -10,7 +10,7 @@
 									@if ($tel->in_menu)
 										<li><a href="tel:{{ $tel->phone_full }}" class="mr-0" style="float:left;">{{ $tel->phone }}</a>
 											@if ($tel->icon_viber || $tel->icon_whatsapp)
-												<div class="social-icons social-icons-colored-hover" style="float:left;">
+												<div class="pl-1 social-icons social-icons-colored-hover" style="float:left;">
 													<ul>
 														@if ($tel->icon_viber)
 															<li class="social-viber"><a href="viber://chat?number={{ $tel->phone_full }}"><i
@@ -41,13 +41,18 @@
 		<!-- end: Topbar -->
 
 		<!-- Header -->
-		<header id="header" data-transparent="true" data-fullwidth="false" class="dark submenu-dark header-disable-fixed">
+		@if(Route::currentRouteName() == 'mroute')
+			<header id="header" data-transparent="false" data-fullwidth="false" class="dark submenu-dark header-disable-fixed">
+		@else
+			<header id="header" data-transparent="true" data-fullwidth="false" class="dark submenu-light header-disable-fixed">
+		@endif
+
 			<div class="header-inner">
 				<div class="container">
 					<!--Logo-->
-					<div id="logo">
+					<div id="logo" class="@if(Route::currentRouteName() == 'mroute') hb_logo @endif">
 						<a href="{{ route('home') }}">
-							<img class="logo-default" src="{{ Voyager::image(setting('site.logo')) }}">
+							<img class="logo-default"  src="{{ Voyager::image(setting('site.logo')) }}">
 							<img class="logo-dark" src="{{ Voyager::image(setting('site.logo')) }}">
 						</a>
 					</div>

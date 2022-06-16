@@ -1,20 +1,18 @@
 
-	<section id="page-title" class="text-light" data-style="3" data-bg-parallax="">
-		<div class="bg-overlay"></div>
-		<div class="container">
-			<div class="page-title">
-				<h1 class="text-uppercase">Маршрути</h1>
-			</div>
-			<div class="breadcrumb">
-				<ul>
-					<li><a href="{{ route('home') }}">Головна</a>
-					</li>
-					<li class="active"><a href="{{ route('country_all') }}">Маршрути</a>
-					</li>
-				</ul>
-			</div>
+<section id="page-title" class="text-light" data-style="3" data-bg-parallax="">
+	<div class="bg-overlay"></div>
+	<div class="container">
+		<div class="page-title">
+			<h1 class="text-uppercase">Маршрути</h1>
 		</div>
-	</section>
+		<div class="breadcrumb">
+			<ul>
+				<li><a href="{{ route('home') }}">Головна</a></li>
+				<li class="active"><a href="{{ route('country_all') }}">Маршрути</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
 
 @foreach ($countries as $country)
 	@php

@@ -64,7 +64,9 @@ class MainController extends Controller
         $route = Route::where('alias',$slug)->where('main', 1)->orderBy('sort', 'asc')->first();
         $routes = view(env('THEME_RESOURCES') . '.parts.route_single')
         ->with('route', $route)->render();
-        $content = $routes;
+        $benefits = view(env('THEME_RESOURCES') . '.parts.benefits')->render();
+
+        $content = $routes.$benefits;
 
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', setting('site.title'));

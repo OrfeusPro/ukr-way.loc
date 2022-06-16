@@ -1260,7 +1260,7 @@ Topbar
   position: relative;
   z-index: 1;
   transition: all .4s ease-in-out;
-  height: 120px;
+  height: 80px;
 }
 #header .header-inner #logo a > img,
 #header #header-wrap #logo a > img {

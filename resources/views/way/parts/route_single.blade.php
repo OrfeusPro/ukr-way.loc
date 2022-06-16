@@ -9,9 +9,13 @@
 				<ul>
 					<li><a href="{{ route('home') }}">Головна</a>
 					</li>
-					<li class="active"><a href="{{ route('country_all') }}">Маршрути</a>
+					<li><a href="{{ route('country_all') }}">Маршрути</a>
+					</li>
+					<li class="active"><a href="{{ route('country', $route->to_countries->first()->alias ) }}">{{ $route->to_countries->first()->title }}</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</section>
+
+	

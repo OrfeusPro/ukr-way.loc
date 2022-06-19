@@ -67,8 +67,11 @@ class MainController extends Controller
 
     public function mroute($slug, Request $request)
     {
+        $GlobalSetting = GlobalSetting::first();
+
         $route = Route::where('alias', $slug)->where('main', 1)->orderBy('sort', 'asc')->first();
         $routes = view(env('THEME_RESOURCES') . '.parts.route_single')
+            ->with('GlobalSetting', $GlobalSetting)
             ->with('route', $route)->render();
         $benefits = view(env('THEME_RESOURCES') . '.parts.benefits')->render();
 

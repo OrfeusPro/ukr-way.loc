@@ -46,7 +46,9 @@
 				<ol class="breadcrumb">
 					<li><a href="{{ route('home') }}"><i class="fa fa-home"></i></a> </li>
 					<li class="breadcrumb-item"><a href="{{ route('country_all') }}">Маршрути</a></li>
-					<li class="breadcrumb-item"><a href="{{ route('country', $route->to_countries->first()->alias) }}">{{ $route->to_countries->first()->title }}</a></li>
+					<li class="breadcrumb-item"><a
+							href="{{ route('country', $route->to_countries->first()->alias) }}">{{ $route->to_countries->first()->title }}</a>
+					</li>
 					<li class="breadcrumb-item active" aria-current="page">{{ $route->title }}</li>
 				</ol>
 			</nav>
@@ -57,14 +59,34 @@
 				<div class="col-lg-5">
 					<div class="product-image">
 						<!-- Carousel slider -->
-						<div class="carousel dots-inside dots-dark arrows-visible" data-items="1" data-loop="true" data-autoplay="true"
-							data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="2500" data-lightbox="gallery">
+						<div class="carousel dots-inside dots-dark"
+							data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false }'
+							data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut"
+							data-autoplay="2500" data-lightbox="gallery">
 							<a href="{{ Voyager::image($route['img']) }}" data-lightbox="image" title="{{ $route->title }}"><img
 									alt="{{ $route->title }}" src="{{ Voyager::image($route['img']) }}">
 							</a>
 						</div>
 						<!-- Carousel slider -->
 					</div>
+					{{-- <div class="pt-3 carousel" data-items="4" data-xs-items="4" data-loop="false" data-autoplay="true"
+						data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="2500" data-pageDots="false"
+						data-lightbox="gallery"> --}}
+
+
+					@php $images = json_decode($GlobalSetting->imgs); @endphp
+
+					<div class="row pt-3 pr-3 pl-3" data-lightbox="gallery">
+						@foreach ($images as $image)
+							<div class="col-2 pt-1 pb-1 pr-1 pl-1">
+								<a href="{{ Voyager::image($image) }}" data-lightbox="gallery-image">
+									<img class="w-100" src="{{ Voyager::image($GlobalSetting->getThumbnail($image, 'cropped')) }}">
+								</a>
+							</div>
+						@endforeach
+					</div>
+					{{-- </div> --}}
+
 				</div>
 				<div class="col-lg-7">
 					<div class="product-description">
@@ -100,8 +122,8 @@
 						</div> --}}
 						<div class="seperator m-b-10"></div>
 						<div class="widget">
-						<h4 class="widget-title">Міста через які проходить маршрут</h4>
-						<p>{!! str_replace("\r\n", ' > ', $route->towns) !!}</p>
+							<h4 class="widget-title">Міста через які проходить маршрут</h4>
+							<p>{!! str_replace("\r\n", ' > ', $route->towns) !!}</p>
 						</div>
 						<div class="seperator m-t-20 m-b-10"></div>
 					</div>

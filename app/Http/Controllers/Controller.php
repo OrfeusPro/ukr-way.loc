@@ -33,11 +33,6 @@ class Controller extends BaseController
 	protected function renderOutput()
 	{
 		$tels = Tel::all();
-		foreach($tels as $key => $item)
-		{
-			$tels[$key]['phone_full'] = str_replace("+","%2B",$tels[$key]['phone_full']);
-			$tels[$key]['phone_full'] = str_replace(" ","",$tels[$key]['phone_full']);
-		}
 
 		$GlobalSetting = GlobalSetting::first();
         $main_countries = Country::orderBy('sort', 'asc')->get();

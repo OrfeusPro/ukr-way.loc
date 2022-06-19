@@ -38,23 +38,25 @@
 								@if (!$tels->isEmpty())
 									<div class="row">
 										@foreach ($tels as $tel)
-											<div class="col-12">
-												<a href="tel:{{ $tel->phone_full }}" style="float:left">{{ $tel->phone }}</a>
-												@if ($tel->icon_viber || $tel->icon_whatsapp)
-													<div class="pl-2 social-icons social-icons-colored-hover" style="float:left">
-														<ul>
-															@if ($tel->icon_viber)
-																<li class="social-viber"><a href="viber://chat?number={{ $tel->phone_full }}" class="mt-1 mr-0 mb-0"><i
-																			class="fab fa-viber"></i></a></li>
-															@endif
-															@if ($tel->icon_whatsapp)
-																<li class="social-whatsapp"><a href="whatsapp://send?phone={{ $tel->phone_full }}"
-																		class="mt-1 mr-0 mb-0"><i class="fab fa-whatsapp"></i></a></li>
-															@endif
-														</ul>
-													</div>
-												@endif
-											</div>
+											@if ($tel->in_footer)
+												<div class="col-12">
+													<a href="tel:{{ $tel->phone_full }}" style="float:left">{{ $tel->phone }}</a>
+													@if ($tel->icon_viber || $tel->icon_whatsapp)
+														<div class="pl-2 social-icons social-icons-colored-hover" style="float:left">
+															<ul>
+																@if ($tel->icon_viber)
+																	<li class="social-viber"><a href="viber://chat?number={{ $tel->phone_full }}"
+																			class="mt-1 mr-0 mb-0"><i class="fab fa-viber"></i></a></li>
+																@endif
+																@if ($tel->icon_whatsapp)
+																	<li class="social-whatsapp"><a href="whatsapp://send?phone={{ $tel->phone_full }}"
+																			class="mt-1 mr-0 mb-0"><i class="fab fa-whatsapp"></i></a></li>
+																@endif
+															</ul>
+														</div>
+													@endif
+												</div>
+											@endif
 										@endforeach
 									</div>
 								@endif

@@ -39,9 +39,18 @@
 			</div>
 		</div>
 		<!-- end: Topbar -->
+@php
+	if(Route::currentRouteName() == 'mroute' || Route::currentRouteName() == 'contacts' || Route::currentRouteName() == 'comments' || Route::currentRouteName() == 'about-us')
+	{
+		$base_menu = 1;
+	}
+	else {
+		$base_menu = 0;
+	}
+@endphp
 
 		<!-- Header -->
-		@if(Route::currentRouteName() == 'mroute')
+		@if($base_menu)
 			<header id="header" data-transparent="false" data-fullwidth="false" class="dark submenu-dark header-disable-fixed">
 		@else
 			<header id="header" data-transparent="true" data-fullwidth="false" class="dark submenu-light header-disable-fixed">
@@ -50,7 +59,7 @@
 			<div class="header-inner">
 				<div class="container">
 					<!--Logo-->
-					<div id="logo" class="@if(Route::currentRouteName() == 'mroute') hb_logo @endif">
+					<div id="logo" class="@if($base_menu) hb_logo @endif">
 						<a href="{{ route('home') }}">
 							<img class="logo-default"  src="{{ Voyager::image(setting('site.logo')) }}">
 							<img class="logo-dark" src="{{ Voyager::image(setting('site.logo')) }}">

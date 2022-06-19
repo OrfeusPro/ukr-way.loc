@@ -1,4 +1,4 @@
-@include(env('THEME_RESOURCES').'.parts.bread')
+@include(env('THEME_RESOURCES') . '.parts.bread')
 
 <section class="background-grey">
 	<div class="container">
@@ -11,9 +11,15 @@
 
 			@foreach ($routes as $route)
 				<div class="col-lg-4">
-					@include(env('THEME_RESOURCES').'.parts.route_item')
+					@include(env('THEME_RESOURCES') . '.parts.route_item')
 				</div>
 			@endforeach
+
+			@if (Route::currentRouteName() == 'home')
+				<div class="col-12 text-center">
+					<a href="{{ route('country_all') }}" class="btn">Дивитись усі маршрути</a>
+				</div>
+			@endif
 
 		</div>
 	</div>

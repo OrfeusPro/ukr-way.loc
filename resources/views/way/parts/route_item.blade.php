@@ -13,21 +13,25 @@
 			<div class="col-6">
 				<div>ТУДИ</div>
 				<span class="price text-left">
+					<b>
 					@if ($route->r_from_price)
 						{{ $route->r_from_price }} грн.
 					@else
 						Ціну уточнюйте
 					@endif
+					</b>
 				</span>
 			</div>
 			<div class="col-6">
 				<div>НАЗАД</div>
 				<span class="price text-right">
+					<b>
 					@if ($route->r_from_price)
 						{{ $route->r_from_price }} грн.
 					@else
 						Ціну уточнюйте
 					@endif
+					</b>
 				</span>
 			</div>
 		</div>

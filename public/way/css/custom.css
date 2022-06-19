@@ -61,6 +61,16 @@
 
 .dark:not(.submenu-light) #mainMenu nav>ul>li .dropdown-menu,
 #mainMenu.dark nav>ul>li .dropdown-menu {
-    background-color: #181818;
-    border-color: #181818;
+    background-color: #123548;
+    border-color: #123548;
+}
+
+@media (max-width: 1024px) {
+
+    .mainMenu-open.dark #header .header-inner,
+    .mainMenu-open.dark #header #header-wrap,
+    .mainMenu-open #header:not(.submenu-light).dark .header-inner,
+    .mainMenu-open #header:not(.submenu-light).dark #header-wrap {
+        background-color: #123548 !important;
+    }
 }

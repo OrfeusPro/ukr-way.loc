@@ -91,36 +91,38 @@
 				<div class="col-lg-7">
 					<div class="product-description">
 						<div class="product-category">{{ $route->to_countries->first()->title }}</div>
-						<div class="product-title left">
-							<h3>{{ $route->r_from }} - {{ $route->r_to }}</h3>
-						</div>
-						<div class="right text-right">
-							ТУДИ:
-							<ins>
-								<b>
-									@if ($route->r_from_price)
-										{{ $route->r_from_price }} грн.
-									@else
-										Ціну уточнюйте
-									@endif
-								</b>
-							</ins>
-							<br>
-							НАЗАД:
-							<ins>
-								<b>
-									@if ($route->r_from_price)
-										{{ $route->r_from_price }} грн.
-									@else
-										Ціну уточнюйте
-									@endif
-								</b>
-							</ins>
+						<div class="row">
+							<div class="product-title left col-12 col-md-8 ml-0 mobile-cetner">
+								<h3>{{ $route->r_from }} - {{ $route->r_to }}</h3>
+							</div>
+							<div class="right text-right col-12 col-md-4 ml-0 pl-0">
+								ТУДИ:
+								<ins>
+									<b>
+										@if ($route->r_from_price)
+											{{ $route->r_from_price }} грн.
+										@else
+											Ціну уточнюйте
+										@endif
+									</b>
+								</ins>
+								<br>
+								НАЗАД:
+								<ins>
+									<b>
+										@if ($route->r_from_price)
+											{{ $route->r_from_price }} грн.
+										@else
+											Ціну уточнюйте
+										@endif
+									</b>
+								</ins>
+							</div>
 						</div>
 
 						{{-- <div class="product-reviews"><a href="#">3 customer reviews</a>
 						</div> --}}
-						<div class="seperator m-b-10"></div>
+						<div class="seperator m-b-10 xxs-mt"></div>
 						<div class="widget mb-0">
 							<h4 class="widget-title">Міста через які проходить маршрут</h4>
 							<p>{!! str_replace("\r\n", ' > ', $route->towns) !!}</p>
@@ -143,7 +145,7 @@
 <section class="background-light">
 	<div class="container">
 		<div class="heading-text heading-section text-center">
-			<h2>ЧАС ПРИБУТТЯ ТА ВІДПРАВЛЕННЯ</h2>
+			<h2 class="font-20-mobile">ЧАС ПРИБУТТЯ ТА ВІДПРАВЛЕННЯ</h2>
 		</div>
 
 		<div class="row">
@@ -154,7 +156,8 @@
 							<div class="col-5 col-md-5">
 								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_from }}</div>
 								<div class="font-14 font-10-mobile xs-pt">Відправлення</div>
-								<div class="font-18 font-14-mobile way_color fw700">{{ $route->r_from_time ? $route->r_from_time : "час" }}</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->r_from_time ? $route->r_from_time : 'час' }}
+								</div>
 							</div>
 							<div class="col-2 col-md-2 b_dashed_krug">
 								<div class="row">
@@ -165,12 +168,14 @@
 							<div class="col-5 col-md-5">
 								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_to }}</div>
 								<div class="font-14 font-10-mobile xs-pt">Прибуття</div>
-								<div class="font-18 font-14-mobile way_color fw700">{{ $route->r_to_place ? $route->r_to_place : "час" }}</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->r_to_place ? $route->r_to_place : 'час' }}
+								</div>
 							</div>
 							<div class="col-12 xxs-pt">
-							<div class="font-16 font-14-mobile fw400">Місце посадки: {{ $route->r_from_place ? $route->r_from_place : "Відправлення уточнюйте у оператора"}}</div>
+								<div class="font-16 font-14-mobile fw400">Місце посадки:
+									{{ $route->r_from_place ? $route->r_from_place : 'Відправлення уточнюйте у оператора' }}</div>
 							</div>
-	
+
 						</div>
 					</div>
 				</div>
@@ -182,8 +187,9 @@
 							<div class="col-5 col-md-5">
 								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_to }}</div>
 								<div class="font-14 font-10-mobile xs-pt">Відправлення</div>
-								<div class="font-18 font-14-mobile way_color fw700">{{ $route->time_from_back ? $route->time_from_back : "час"}}</div>
-								
+								<div class="font-18 font-14-mobile way_color fw700">
+									{{ $route->time_from_back ? $route->time_from_back : 'час' }}</div>
+
 
 							</div>
 							<div class="col-2 col-md-2 b_dashed_krug">
@@ -195,10 +201,12 @@
 							<div class="col-5 col-md-5">
 								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_from }}</div>
 								<div class="font-14 font-10-mobile xs-pt">Прибуття</div>
-								<div class="font-18 font-14-mobile way_color fw700">{{ $route->time_to_back ? $route->time_to_back : "час"}}</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->time_to_back ? $route->time_to_back : 'час' }}
+								</div>
 							</div>
 							<div class="col-12 xxs-pt">
-							 <div class="font-16 font-14-mobile fw400">Место посадки:  {{ $route->r_to_place ? $route->r_to_place : "Відправлення уточнюйте у оператора"}}</div>
+								<div class="font-16 font-14-mobile fw400">Место посадки:
+									{{ $route->r_to_place ? $route->r_to_place : 'Відправлення уточнюйте у оператора' }}</div>
 							</div>
 						</div>
 					</div>
@@ -206,7 +214,7 @@
 			</div>
 		</div>
 	</div>
-	</section>
+</section>
 
 {{-- <!-- Page Content -->
 <section id="page-content" class="background-light">

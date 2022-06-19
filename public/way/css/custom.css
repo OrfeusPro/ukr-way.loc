@@ -46,3 +46,7 @@
 .way_color{
     color:#0067ef;
 }
+
+.product .product-title {
+    max-width: 100%;
+}

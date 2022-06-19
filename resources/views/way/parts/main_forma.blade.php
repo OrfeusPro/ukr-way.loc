@@ -32,7 +32,7 @@
 								@endforeach
 							</datalist>
 						</div>
-						<div class="col-12 col-md-3">
+						<div class="col-12 col-md-3 xxs-mt-mobile">
 							<input class="form-control" type="date" value="{{ date('Y-m-d') }}">
 						</div>
 						<div class="col-12 col-md-3 xxs-mt-mobile">

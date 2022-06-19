@@ -11083,8 +11083,9 @@ input.dates:after {
 
 .avatar {
   flex-shrink: 0;
+  /* width: 100%; */
   width: 2.7rem;
-  height: 2.7rem;
+  height: 2.7rem; 
   border-radius: 50%;
 }
 .avatar .avatar-lg {

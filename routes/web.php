@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\CommentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,13 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function () {
     Route::get('/', [MainController::class, 'index'])->name('home');
+
+    Route::get('/comments', [CommentsController::class, 'index'])->name('comments');
+    Route::put('/comments/add', [CommentsController::class, 'store'])->name('addcomment');
+
     Route::post('/form-process', [MainController::class, 'form_process'])->name('form_process');
     Route::post('/contact-process', [MainController::class, 'contact_process'])->name('contact_process');
     Route::get('/about-us', [MainController::class, 'about_us'])->name('about-us');
-    Route::get('/comments', [MainController::class, 'comments'])->name('comments');
     Route::get('/thanks', [MainController::class, 'thanks'])->name('thanks');
     Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
     Route::get('/{page}', [MainController::class, 'page'])->name('page');

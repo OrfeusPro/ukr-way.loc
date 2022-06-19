@@ -216,10 +216,10 @@
 	</div>
 </section>
 
-@if($route->map)
-<section class="py-0">
-	{!! $route->map !!}
-</section>
+@if ($route->map)
+	<section class="py-0">
+		{!! $route->map !!}
+	</section>
 @endif
 
 

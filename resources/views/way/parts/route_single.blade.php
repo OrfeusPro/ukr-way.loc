@@ -76,7 +76,7 @@
 
 					@php $images = json_decode($GlobalSetting->imgs); @endphp
 
-					<div class="row pt-3 pr-3 pl-3" data-lightbox="gallery">
+					<div class="row pt-3 pr-3 pl-3" data-animate-in="fadeIn" data-animate-out="fadeOut" data-lightbox="gallery">
 						@foreach ($images as $image)
 							<div class="col-2 pt-1 pb-1 pr-1 pl-1">
 								<a href="{{ Voyager::image($image) }}" data-lightbox="gallery-image">
@@ -121,9 +121,12 @@
 						{{-- <div class="product-reviews"><a href="#">3 customer reviews</a>
 						</div> --}}
 						<div class="seperator m-b-10"></div>
-						<div class="widget">
+						<div class="widget mb-0">
 							<h4 class="widget-title">Міста через які проходить маршрут</h4>
 							<p>{!! str_replace("\r\n", ' > ', $route->towns) !!}</p>
+						</div>
+						<div class="right">
+							<a href="#" data-target="#modal" data-toggle="modal" class="btn">Замовити дзвінок</a>
 						</div>
 						<div class="seperator m-t-20 m-b-10"></div>
 					</div>
@@ -137,7 +140,75 @@
 <!-- end: SHOP PRODUCT PAGE -->
 
 
-<!-- Page Content -->
+<section class="background-light">
+	<div class="container">
+		<div class="heading-text heading-section text-center">
+			<h2>ЧАС ПРИБУТТЯ ТА ВІДПРАВЛЕННЯ</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="row xxs-px">
+					<div class="col-12 col-md-12 bg-white radius-md xs-py">
+						<div class="row t-center">
+							<div class="col-5 col-md-5">
+								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_from }}</div>
+								<div class="font-14 font-10-mobile xs-pt">Відправлення</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->r_from_time ? $route->r_from_time : "час" }}</div>
+							</div>
+							<div class="col-2 col-md-2 b_dashed_krug">
+								<div class="row">
+									<div class="font-30 col-6 no-pl krug1 t-left">•</div>
+									<div class="font-30 col-6 no-pr krug2 t-right">•</div>
+								</div>
+							</div>
+							<div class="col-5 col-md-5">
+								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_to }}</div>
+								<div class="font-14 font-10-mobile xs-pt">Прибуття</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->r_to_place ? $route->r_to_place : "час" }}</div>
+							</div>
+							<div class="col-12 xxs-pt">
+							<div class="font-16 font-14-mobile fw400">Місце посадки: {{ $route->r_from_place ? $route->r_from_place : "Відправлення уточнюйте у оператора"}}</div>
+							</div>
+	
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 xs-mt-mobile">
+				<div class="row xxs-px">
+					<div class="col-12 col-md-12 bg-white radius-md xs-py">
+						<div class="row t-center">
+							<div class="col-5 col-md-5">
+								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_to }}</div>
+								<div class="font-14 font-10-mobile xs-pt">Відправлення</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->time_from_back ? $route->time_from_back : "час"}}</div>
+								
+
+							</div>
+							<div class="col-2 col-md-2 b_dashed_krug">
+								<div class="row">
+									<div class="font-30 col-6 no-pl krug1 t-left">•</div>
+									<div class="font-30 col-6 no-pr krug2 t-right">•</div>
+								</div>
+							</div>
+							<div class="col-5 col-md-5">
+								<div class="font-21 font-16-mobile uppercase fw700 title">{{ $route->r_from }}</div>
+								<div class="font-14 font-10-mobile xs-pt">Прибуття</div>
+								<div class="font-18 font-14-mobile way_color fw700">{{ $route->time_to_back ? $route->time_to_back : "час"}}</div>
+							</div>
+							<div class="col-12 xxs-pt">
+							 <div class="font-16 font-14-mobile fw400">Место посадки:  {{ $route->r_to_place ? $route->r_to_place : "Відправлення уточнюйте у оператора"}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+{{-- <!-- Page Content -->
 <section id="page-content" class="background-light">
 	<div class="container">
 		<div class="grid-layout grid-3-columns" data-item="grid-item" data-margin="10">
@@ -155,4 +226,4 @@
 
 		</div>
 	</div>
-</section>
+</section> --}}

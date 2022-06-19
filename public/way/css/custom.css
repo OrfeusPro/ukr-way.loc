@@ -25,3 +25,24 @@
     margin: 0 auto 10px;
     width: 36px;
 }
+
+.b_dashed_krug{
+    border-top: 1px dashed #060e35;
+    margin-top: 13px;
+}
+
+
+.krug1{
+    margin-top: -12px;
+    float: left;
+    margin-right: 0px;
+}
+.krug2{
+    margin-top: -12px;
+    float: left;
+    margin-right: 0px;
+}
+
+.way_color{
+    color:#0067ef;
+}

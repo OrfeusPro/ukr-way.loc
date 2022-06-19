@@ -7,17 +7,17 @@
 
 */
 
-.wrn-btn{
+.wrn-btn {
     width: 100%;
     font-size: 16px;
     font-weight: 400;
     text-transform: capitalize;
     height: 100%;
-    border-radius:0;
+    border-radius: 0;
 }
 
 /* /////////////////////////// */
-.benefits .testimonial .testimonial-item > img {
+.benefits .testimonial .testimonial-item>img {
     border-radius: 0%;
     display: block;
     float: none;
@@ -26,31 +26,41 @@
     width: 36px;
 }
 
-.b_dashed_krug{
+.b_dashed_krug {
     border-top: 1px dashed #060e35;
     margin-top: 13px;
 }
 
 
-.krug1{
-    margin-top: -12px;
-    float: left;
-    margin-right: 0px;
-}
-.krug2{
+.krug1 {
     margin-top: -12px;
     float: left;
     margin-right: 0px;
 }
 
-.way_color{
-    color:#0067ef;
+.krug2 {
+    margin-top: -12px;
+    float: left;
+    margin-right: 0px;
+}
+
+.way_color {
+    color: #0067ef;
 }
 
 .product .product-title {
     max-width: 100%;
 }
 
-.dark #header .header-inner, .dark #header #header-wrap, #header.dark .header-inner, #header.dark #header-wrap {
+.dark #header .header-inner,
+.dark #header #header-wrap,
+#header.dark .header-inner,
+#header.dark #header-wrap {
     background-color: #123548;
+}
+
+.dark:not(.submenu-light) #mainMenu nav>ul>li .dropdown-menu,
+#mainMenu.dark nav>ul>li .dropdown-menu {
+    background-color: #181818;
+    border-color: #181818;
 }

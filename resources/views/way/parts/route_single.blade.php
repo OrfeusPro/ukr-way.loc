@@ -216,6 +216,13 @@
 	</div>
 </section>
 
+@if($route->map)
+<section class="py-0">
+	{!! $route->map !!}
+</section>
+@endif
+
+
 {{-- <!-- Page Content -->
 <section id="page-content" class="background-light">
 	<div class="container">

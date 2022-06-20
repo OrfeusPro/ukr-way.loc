@@ -53,7 +53,7 @@
 		@if($base_menu)
 			<header id="header" data-transparent="false" data-fullwidth="false" class="dark submenu-dark header-disable-fixed">
 		@else
-			<header id="header" data-transparent="true" data-fullwidth="false" class="dark submenu-light header-disable-fixed">
+			<header id="header" data-transparent="true" data-fullwidth="false" class="dark submenu-dark header-disable-fixed">
 		@endif
 
 			<div class="header-inner">

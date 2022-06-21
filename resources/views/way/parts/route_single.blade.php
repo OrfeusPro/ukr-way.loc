@@ -189,8 +189,6 @@
 								<div class="font-14 font-10-mobile xs-pt">Відправлення</div>
 								<div class="font-18 font-14-mobile way_color fw700">
 									{{ $route->time_from_back ? $route->time_from_back : 'час' }}</div>
-
-
 							</div>
 							<div class="col-2 col-md-2 b_dashed_krug">
 								<div class="row">
@@ -205,7 +203,7 @@
 								</div>
 							</div>
 							<div class="col-12 xxs-pt">
-								<div class="font-16 font-14-mobile fw400">Место посадки:
+								<div class="font-16 font-14-mobile fw400">Місце посадки:
 									{{ $route->r_to_place ? $route->r_to_place : 'Відправлення уточнюйте у оператора' }}</div>
 							</div>
 						</div>

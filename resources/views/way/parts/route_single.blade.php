@@ -173,7 +173,13 @@
 							</div>
 							<div class="col-12 xxs-pt">
 								<div class="font-16 font-14-mobile fw400">Місце посадки:
-									{{ $route->r_from_place ? $route->r_from_place : 'Відправлення уточнюйте у оператора' }}</div>
+									{{ $route->r_from_place ? $route->r_from_place : 'Відправлення уточнюйте у оператора' }}
+									@if ($route->r_from_text)
+										<div class="seperator m-t-10 m-b-10"></div>
+										<div class="text-left">{!! str_replace("\r\n", '<br>', $route->r_from_text) !!}</div>
+									@endif
+								</div>
+
 							</div>
 
 						</div>
@@ -204,7 +210,12 @@
 							</div>
 							<div class="col-12 xxs-pt">
 								<div class="font-16 font-14-mobile fw400">Місце посадки:
-									{{ $route->r_to_place ? $route->r_to_place : 'Відправлення уточнюйте у оператора' }}</div>
+									{{ $route->r_to_place ? $route->r_to_place : 'Відправлення уточнюйте у оператора' }}
+									@if ($route->r_to_text)
+										<div class="seperator m-t-10 m-b-10"></div>
+										<div class="text-left">{!! str_replace("\r\n", '<br>', $route->r_to_text) !!}</div>
+									@endif
+								</div>
 							</div>
 						</div>
 					</div>
@@ -214,8 +225,16 @@
 	</div>
 </section>
 
+
+
+@if ($benefits)
+	{!! $benefits !!}
+@endif
+
+
+
 @if ($route->map)
-	<section class="py-0">
+	<section class="py-0 hb_map">
 		{!! $route->map !!}
 	</section>
 @endif

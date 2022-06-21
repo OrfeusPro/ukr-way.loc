@@ -71,12 +71,14 @@ class MainController extends Controller
         $GlobalSetting = GlobalSetting::first();
 
         $route = Route::where('alias', $slug)->orderBy('sort', 'asc')->first();
-        $routes = view(env('THEME_RESOURCES') . '.parts.route_single')
-            ->with('GlobalSetting', $GlobalSetting)
-            ->with('route', $route)->render();
         $benefits = view(env('THEME_RESOURCES') . '.parts.benefits')->render();
 
-        $content = $routes . $benefits;
+        $routes = view(env('THEME_RESOURCES') . '.parts.route_single')
+            ->with('GlobalSetting', $GlobalSetting)
+            ->with('benefits', $benefits)
+            ->with('route', $route)->render();
+
+        $content = $routes;
 
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', $route->meta_title ? $route->meta_title : "Маршрутка " . $route->title . " | " . setting('site.title'));

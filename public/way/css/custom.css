@@ -74,3 +74,18 @@
         background-color: #123548 !important;
     }
 }
+
+
+.about{
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+
+    .about .photo
+    {
+        max-width: 500px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+}

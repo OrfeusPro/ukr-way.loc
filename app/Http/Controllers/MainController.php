@@ -9,6 +9,7 @@ use App\Models\Country;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Models\GlobalSetting;
+use App\Models\Page;
 use Illuminate\Support\Facades\App;
 
 class MainController extends Controller
@@ -108,6 +109,25 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', "Контакти | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        return $this->renderOutput();
+    }
+
+    public function about_us(Request $request)
+    {
+        // $tels = Tel::all();
+        $page = Page::where("alias", "pro-nas")->first();
+
+        $content = view(env('THEME_RESOURCES') . '.layouts.about')
+            ->with('page', $page)
+            ->render();
+
+        $benefits = view(env('THEME_RESOURCES') . '.parts.benefits')->render();
+
+        $content = $content . $benefits;
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->vars = Arr::add($this->vars, 'title', $page->meta_title ? $page->meta_title : "Про нас | " . setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', $page->meta_desc ? $page->meta_desc : setting('site.description'));
         return $this->renderOutput();
     }
 

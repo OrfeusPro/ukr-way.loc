@@ -28,7 +28,7 @@
 												</div>
 											@endif
 											@if ($loop->iteration != count($tels))
-												<span class="pl-1 pr-3" style="float:left; color: rgb(46, 46, 46); line-height: 40px;">|</span>
+												<span class="pl-1 pr-1" style="float:left; color: rgb(46, 46, 46); line-height: 40px;">|</span>
 											@endif
 										</li>
 									@endif
@@ -40,7 +40,7 @@
 						</div> --}}
 
 						@if(setting('site.facebook') || setting('site.instagram'))
-                        <div class="d-none d-sm-block right social-icons social-icons-colored-hover">
+                        <div id="soc_top" class="d-none d-sm-block right social-icons social-icons-colored-hover">
                             <ul>
                                 @if(setting('site.facebook'))<li class="social-facebook"><a href="{{ setting('site.facebook') }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>@endif
                                 @if(setting('site.instagram'))<li class="social-instagram"><a href="{{ setting('site.instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a></li>@endif

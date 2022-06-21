@@ -61,8 +61,8 @@ class MainController extends Controller
         $content = $routes;
 
         $this->vars = Arr::add($this->vars, 'content', $content);
-        $this->vars = Arr::add($this->vars, 'title', $country->title . " | " . setting('site.title'));
-        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'title', $country->meta_title ? $country->meta_title : $country->title . " | " . setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', $country->meta_desc ? $country->meta_desc : setting('site.description'));
         return $this->renderOutput();
     }
 
@@ -70,7 +70,7 @@ class MainController extends Controller
     {
         $GlobalSetting = GlobalSetting::first();
 
-        $route = Route::where('alias', $slug)->where('main', 1)->orderBy('sort', 'asc')->first();
+        $route = Route::where('alias', $slug)->orderBy('sort', 'asc')->first();
         $routes = view(env('THEME_RESOURCES') . '.parts.route_single')
             ->with('GlobalSetting', $GlobalSetting)
             ->with('route', $route)->render();
@@ -79,8 +79,8 @@ class MainController extends Controller
         $content = $routes . $benefits;
 
         $this->vars = Arr::add($this->vars, 'content', $content);
-        $this->vars = Arr::add($this->vars, 'title', "Маршрутка " . $route->title . " | " . setting('site.title'));
-        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'title', $route->meta_title ? $route->meta_title : "Маршрутка " . $route->title . " | " . setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', $route->meta_desc ? $route->meta_desc : "Маршрутка " . $route->title . " - " . setting('site.description'));
         return $this->renderOutput();
     }
 
@@ -95,7 +95,7 @@ class MainController extends Controller
 
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', "Всі маршрути | " . setting('site.title'));
-        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', "Всі маршрути | " . setting('site.description'));
         return $this->renderOutput();
     }
 
@@ -108,7 +108,7 @@ class MainController extends Controller
 
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', "Контакти | " . setting('site.title'));
-        $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', "Контакти | " . setting('site.description'));
         return $this->renderOutput();
     }
 

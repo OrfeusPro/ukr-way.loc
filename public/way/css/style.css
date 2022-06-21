@@ -18471,6 +18471,9 @@ body[data-bg-image] {
 .social-icons.social-icons-colored .social-viber a, .social-icons.social-icons-colored-hover .social-viber a:hover {
     background-color: #824f9e;
 }
+.social-icons.social-icons-colored .social-telegram a, .social-icons.social-icons-colored-hover .social-telegram a:hover {
+    background-color: #269cd9;
+}
 .social-icons.social-icons-colored .social-whatsapp a, .social-icons.social-icons-colored-hover .social-whatsapp a:hover {
     background-color: #28a219;
 }

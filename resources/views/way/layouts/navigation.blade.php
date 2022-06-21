@@ -5,16 +5,20 @@
 				<div class="row">
 					<div class="col-md-12">
 						@if (!$tels->isEmpty())
-							<ul class="top-menu center text-center" style="line-height: 10px;">
+							<ul class="top-menu left" style="line-height: 10px;">
 								@foreach ($tels as $tel)
 									@if ($tel->in_menu)
 										<li><a href="tel:{{ $tel->phone_full }}" class="mr-0" style="float:left;">{{ $tel->phone }}</a>
-											@if ($tel->icon_viber || $tel->icon_whatsapp)
+											@if ($tel->icon_viber || $tel->icon_whatsapp || $tel->icon_telegram)
 												<div class="pl-1 social-icons social-icons-colored-hover" style="float:left;">
 													<ul>
 														@if ($tel->icon_viber)
 															<li class="social-viber"><a href="viber://chat?number={{ $tel->phone_full }}"><i
 																		class="fab fa-viber"></i></a></li>
+														@endif
+														@if ($tel->icon_telegram)
+															<li class="social-telegram"><a href="tg://resolve?phone={{ $tel->phone_full }}"><i
+																		class="fab fa-telegram-plane"></i></a></li>
 														@endif
 														@if ($tel->icon_whatsapp)
 															<li class="social-whatsapp"><a href="whatsapp://send?phone={{ $tel->phone_full }}"><i
@@ -31,10 +35,19 @@
 								@endforeach
 							</ul>
 						@endif
+						{{-- <div class="col-md-1 d-none d-sm-block text-right align-self-center">
+							<a href="#"  data-target="#modal" data-toggle="modal" class="btn btn-light btn-sm mb-0">Замовити дзвінок</a>
+						</div> --}}
+
+						@if(setting('site.facebook') || setting('site.instagram'))
+                        <div class="d-none d-sm-block right social-icons social-icons-colored-hover">
+                            <ul>
+                                @if(setting('site.facebook'))<li class="social-facebook"><a href="{{ setting('site.facebook') }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>@endif
+                                @if(setting('site.instagram'))<li class="social-instagram"><a href="{{ setting('site.instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a></li>@endif
+                            </ul>
+                        </div>
+						@endif
 					</div>
-					{{-- <div class="col-md-2 d-none d-sm-block text-right align-self-center">
-						<a href="#"  data-target="#modal" data-toggle="modal" class="btn btn-light btn-sm mb-0">Замовити дзвінок</a>
-					</div> --}}
 				</div>
 			</div>
 		</div>
@@ -94,12 +107,16 @@
 													@foreach ($tels as $tel)
 														<li class="align-self-center">
 															<a href="tel:{{ $tel->phone_full }}" style="float:left;">{{ $tel->phone }}</a>
-															@if ($tel->icon_viber || $tel->icon_whatsapp)
+															@if ($tel->icon_viber || $tel->icon_whatsapp || $tel->icon_telegram)
 																<div class="pl-2 social-icons social-icons-colored-hover" style="float:left;">
 																	<ul>
 																		@if ($tel->icon_viber)
 																			<li class="social-viber"><a href="viber://chat?number={{ $tel->phone_full }}"
 																					class="mt-1 mr-0 mb-0"><i class="fab fa-viber"></i></a></li>
+																		@endif
+																		@if ($tel->icon_telegram)
+																			<li class="social-telegram"><a href="tg://resolve?phone={{ $tel->phone_full }}"
+																					class="mt-1 mr-0 mb-0"><i class="fab fa-telegram-plane"></i></a></li>
 																		@endif
 																		@if ($tel->icon_whatsapp)
 																			<li class="social-whatsapp"><a href="whatsapp://send?phone={{ $tel->phone_full }}"
@@ -113,6 +130,16 @@
 												</ul>
 											@endif
 										</div>
+
+										@if(setting('site.facebook') || setting('site.instagram'))
+											<div class="contact-title white">СОЦ. МЕРЕЖІ:</div>
+											<div class="left social-icons social-icons-colored-hover pb-3">
+												<ul>
+													@if(setting('site.facebook'))<li class="social-facebook"><a href="{{ setting('site.facebook') }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>@endif
+													@if(setting('site.instagram'))<li class="social-instagram"><a href="{{ setting('site.instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a></li>@endif
+												</ul>
+											</div>
+										@endif
 									</div>
 								</div>
 

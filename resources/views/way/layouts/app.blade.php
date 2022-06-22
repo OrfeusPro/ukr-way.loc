@@ -37,18 +37,18 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-md-12 text-center">
-								<form>
+								<form id="modalform" method="post" action="/thanks">
 									<div class="form-group row">
 										<div class="col-12">
-											<input class="form-control" placeholder="Им`я" type="text" value="" id="example-text-input">
+											<input class="form-control" id="modal_name" name="modal_name" placeholder="Им`я" type="text" value="" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<div class="col-12">
-											<input class="form-control" placeholder="Телефон" type="tel" value="" id="example-tel-input">
+											<input class="form-control" id="modal_phone" name="modal_phone" placeholder="Телефон" type="text" value="" required>
 										</div>
 									</div>
-									<button type="button" class="btn btn-sm btn-b">Відправити</button>
+									<button type="submit" class="btn btn-sm btn-b">Відправити</button>
 								</form>
 							</div>
 						</div>

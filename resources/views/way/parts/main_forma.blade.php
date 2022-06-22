@@ -4,7 +4,7 @@
 
 
 	<div class="container">
-		<form action="./complete.php" method="post" id="mainform_action">
+		<form action="/thanks" method="post" id="mainform_action">
 			<div class="row">
 				<div class="col-12 col-md-10">
 					<div class="row">
@@ -33,7 +33,7 @@
 							</datalist>
 						</div>
 						<div class="col-12 col-md-3 xxs-mt-mobile">
-							<input class="form-control" type="date" value="{{ date('Y-m-d') }}">
+							<input class="form-control" id="nowdate" name="nowdate" type="date" value="{{ date('Y-m-d') }}">
 						</div>
 						<div class="col-12 col-md-3 xxs-mt-mobile">
 							<input type="tel" class="form-control" id="phone" name="phone" placeholder="38 (096) 123-45-67"

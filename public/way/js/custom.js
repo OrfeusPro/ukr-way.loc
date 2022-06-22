@@ -4,21 +4,29 @@ $("#mainform_action").submit(function(event){
     submitMainForm();
 });
 
-$("#modalform_action").submit(function(event){
+$("#modalform").submit(function(event){
     // cancels the form submission
     event.preventDefault();
     submitModalForm();
 });
 
+$("#contact_form").submit(function(event){
+    // cancels the form submission
+    event.preventDefault();
+    submitcontact_form();
+});
+
+
 function submitMainForm(){
-    var name_user = $("#name").val(); //Имя
+    var name_user = ''; //Имя
     var tel_user = $("#phone").val(); //телефон 
     var otkuda = $("#otkuda").val(); //телефон 
     var kuda = $("#kuda").val(); //телефон 
     var nowdate = $("#nowdate").val(); //телефон 
     var modal_email = ''; // 
+    var message = ''; // 
 
-    submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate);
+    submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate, message);
 }
 
 function submitModalForm(){
@@ -28,11 +36,25 @@ function submitModalForm(){
     var kuda = ''; //телефон 
     var nowdate = ''; //телефон 
     var modal_email = ''; // 
+    var message = ''; // 
 
-    submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate);
+    submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate, message);
 }
 
-function submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate){
+function submitcontact_form(){
+    var name_user = $("#name").val(); //Имя
+    var tel_user = $("#tel").val(); //телефон 
+    var message = $("#message").val(); //телефон 
+    var otkuda = ''; //телефон 
+    var kuda = ''; //телефон 
+    var nowdate = ''; //телефон 
+    var modal_email = ''; // 
+
+    submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate, message);
+}
+
+
+function submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate, message){
    /* // Initiate Variables With Form Content
     var name_user = $("#modalname_user").val(); //Имя
     var tel_user = $("#modaltel_user").val(); //телефон*/
@@ -42,7 +64,7 @@ function submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate){
     $.ajax({
         type: "POST",
         url: "/form-process",
-        data: "name_user=" + name_user + "&tel_user=" + tel_user + "&email=" + modal_email + "&otkuda=" + otkuda + "&kuda=" + kuda + "&nowdate=" + nowdate,
+        data: "name_user=" + name_user + "&tel_user=" + tel_user + "&email=" + modal_email + "&otkuda=" + otkuda + "&kuda=" + kuda + "&nowdate=" + nowdate + "&message=" + message,
         success : function(text){
             if (text == "success"){
                 formSuccess();
@@ -51,13 +73,12 @@ function submitForm(name_user, tel_user, modal_email, otkuda, kuda, nowdate){
             else
             {
             	formSuccess();
-            	   	
             }
         }
     });
 }
 function formSuccess(){
-    window.location.replace("./thanks");
+    window.location.replace("/thanks");
 }
 
 

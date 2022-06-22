@@ -53,7 +53,7 @@
 		</div>
 		<!-- end: Topbar -->
 @php
-	if(Route::currentRouteName() == 'mroute' || Route::currentRouteName() == 'contacts' || Route::currentRouteName() == 'comments' || Route::currentRouteName() == 'about-us')
+	if(Route::currentRouteName() == 'mroute' || Route::currentRouteName() == 'contacts' || Route::currentRouteName() == 'comments' || Route::currentRouteName() == 'about-us' || Route::currentRouteName() == 'thanks')
 	{
 		$base_menu = 1;
 	}

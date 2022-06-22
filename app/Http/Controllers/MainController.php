@@ -114,6 +114,19 @@ class MainController extends Controller
         return $this->renderOutput();
     }
 
+
+    public function thanks(Request $request)
+    {
+        $tels = Tel::all();
+        $content = view(env('THEME_RESOURCES') . '.layouts.thanks')
+            ->render();
+
+        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->vars = Arr::add($this->vars, 'title', "Дякую | " . setting('site.title'));
+        $this->vars = Arr::add($this->vars, 'meta_desc', "Дякую - " . setting('site.description'));
+        return $this->renderOutput();
+    }
+
     public function about_us(Request $request)
     {
         // $tels = Tel::all();
@@ -143,14 +156,12 @@ class MainController extends Controller
         $otkuda = $_POST["otkuda"];
         $kuda = $_POST["kuda"];
         $nowdate = $_POST["nowdate"];
-        //$email = $_POST["email"];
+        $msg = $_POST["message"];
 
         $html = "Content-type: text/html; charset=utf-8\n";
-        $mailto   = "v.heart.breaking@gmail.com"; // Enter your mail addres here. 
-        // $mailto2   = "tanya_stashevska@bk.ru"; // Enter your mail addres here. 
+        $mailto   = env("CLIENT_MAIL"); // Enter your mail addres here. 
         $name_user     = ucwords($name_user);
         $subject  = "Заявка з сайта " . ucwords($name_user); // Enter the subject here.
-        //$message  =  "Имя: ".$name_user."<br>Тел: ".$tel_user;
 
         $message = "";
         if ($name_user) {
@@ -173,10 +184,14 @@ class MainController extends Controller
             $message .= "Дата поездки: " . $nowdate . "<br>";
         }
 
-        $email_message = trim(stripslashes($message));
-        $success = mail($mailto, $subject, $email_message, $html . "From: \"prestigetour.com.ua\" <info@prestigetour.com.ua>\nReply-To: \"" . ucwords($name_user) . "\" <info@prestigetour.com.ua>\nX-Mailer: PHP/" . phpversion());
-        // $success = mail($mailto2, $subject, $email_message, $html."From: \"prestigetour.com.ua\" <info@prestigetour.com.ua>\nReply-To: \"".ucwords($name_user)."\" <info@prestigetour.com.ua>\nX-Mailer: PHP/" . phpversion() );
+        if ($msg) {
+            $message .= "Сообщение: " . $msg;
+        }
 
+        $email_message = trim(stripslashes($message));
+        $success = mail($mailto, $subject, $email_message, $html . "From: \"info@ukr-way.com.ua\" <info@ukr-way.com.ua>\nReply-To: \"" . ucwords($tel_user) . "\" <info@ukr-way.com.ua>\nX-Mailer: PHP/" . phpversion());
+
+        // dd($request->all());
         if ($success) {
             return "success";
         } else {

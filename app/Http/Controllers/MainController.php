@@ -191,7 +191,6 @@ class MainController extends Controller
         $email_message = trim(stripslashes($message));
         $success = mail($mailto, $subject, $email_message, $html . "From: \"info@ukr-way.com.ua\" <info@ukr-way.com.ua>\nReply-To: \"" . ucwords($tel_user) . "\" <info@ukr-way.com.ua>\nX-Mailer: PHP/" . phpversion());
 
-        // dd($request->all());
         if ($success) {
             return "success";
         } else {

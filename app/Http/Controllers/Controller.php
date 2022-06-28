@@ -39,6 +39,7 @@ class Controller extends BaseController
 
 		$this->vars = Arr::add($this->vars, 'title', setting('site.description'));
 		$this->vars = Arr::add($this->vars, 'meta_desc', $this->meta_desc);
+		$this->vars = Arr::add($this->vars, 'keywords', $this->keywords);
 		$this->vars = Arr::add($this->vars, 'tels', $tels);
 		$this->vars = Arr::add($this->vars, 'main_countries', $main_countries);
 		$this->vars = Arr::add($this->vars, 'GlobalSetting', $GlobalSetting);

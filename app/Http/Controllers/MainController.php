@@ -46,6 +46,7 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'slider', $sliders);
         $this->vars = Arr::add($this->vars, 'title', setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', setting('site.keywords'));
         return $this->renderOutput();
     }
 
@@ -63,6 +64,8 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', $country->meta_title ? $country->meta_title : $country->title . " | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', $country->meta_desc ? $country->meta_desc : setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', $country->meta_keywords ? $country->meta_keywords : "");
+
         return $this->renderOutput();
     }
 
@@ -83,6 +86,8 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', $route->meta_title ? $route->meta_title : "Маршрутка " . $route->title . " | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', $route->meta_desc ? $route->meta_desc : "Маршрутка " . $route->title . " - " . setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', $route->meta_keywords ? $route->meta_keywords : "");
+
         return $this->renderOutput();
     }
 
@@ -98,6 +103,8 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', "Всі маршрути | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', "Всі маршрути | " . setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', "");
+
         return $this->renderOutput();
     }
 
@@ -111,6 +118,8 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', "Контакти | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', "Контакти | " . setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', "");
+
         return $this->renderOutput();
     }
 
@@ -124,6 +133,8 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', "Дякую | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', "Дякую - " . setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', "");
+
         return $this->renderOutput();
     }
 
@@ -143,6 +154,8 @@ class MainController extends Controller
         $this->vars = Arr::add($this->vars, 'content', $content);
         $this->vars = Arr::add($this->vars, 'title', $page->meta_title ? $page->meta_title : "Про нас | " . setting('site.title'));
         $this->vars = Arr::add($this->vars, 'meta_desc', $page->meta_desc ? $page->meta_desc : setting('site.description'));
+        $this->vars = Arr::add($this->vars, 'keywords', $page->meta_keywords ? $page->meta_keywords : "");
+
         return $this->renderOutput();
     }
 

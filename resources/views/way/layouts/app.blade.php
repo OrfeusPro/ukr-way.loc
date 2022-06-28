@@ -6,6 +6,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>{{ isset($title) ? $title : '' }}</title>
 	<meta name="description" content="{{ isset($meta_desc) ? $meta_desc : '' }}">
+	<meta name="keywords" content="{{ isset($keywords) ? $keywords : '' }}">
 	<link rel="icon" type="image/png" href="{{ asset('/storage') }}/{{ setting('site.favicon') }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="csrf-token" content="{{ csrf_token() }}">

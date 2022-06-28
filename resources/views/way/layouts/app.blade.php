@@ -15,6 +15,8 @@
 	<link href="{{ ver_asset(env('THEME').'css/style.css') }}" rel="stylesheet">
 	<link href="{{ ver_asset(env('THEME').'css/custom.css') }}" rel="stylesheet">
 	<link href="{{ ver_asset(env('THEME').'css/xxx.css') }}" rel="stylesheet">
+	
+	{!!setting('site.head_code')!!}
 </head>
 
 <body>
